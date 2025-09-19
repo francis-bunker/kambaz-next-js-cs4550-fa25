@@ -172,7 +172,7 @@ export default function Lab1() {
            id="wd-text-fields-last-name" />
          <h5>Text boxes</h5>
          <label>Biography:</label><br />
-         <textarea id="wd-textarea" cols={30} rows={10}></textarea>
+         <textarea id="wd-textarea" cols={30} rows={10}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sollicitudin volutpat molestie. Duis vehicula non lacus et sagittis. Fusce quis elit mi. Suspendisse nec erat suscipit, finibus orci vitae, lacinia ante. Aenean orci felis, dapibus non pretium in, convallis eget ipsum. Donec vitae posuere erat. Quisque eu pretium nisl. Proin non ultricies est. Sed dignissim rhoncus pretium. Ut erat lacus, vehicula vitae erat ut, vulputate luctus arcu. Donec commodo condimentum est sed tincidunt. Etiam euismod arcu erat, ut sollicitudin ligula mollis in. Pellentesque eleifend ante a urna vulputate vehicula. Phasellus elementum, est at pulvinar volutpat, libero sapien ornare turpis, a facilisis enim sapien quis massa. Fusce ut magna tellus.</textarea>
          <h4>Other HTML field types</h4>
 
 
@@ -249,7 +249,7 @@ export default function Lab1() {
        <select id="wd-select-one-genre">
          <option value="COMEDY">Comedy</option>
          <option value="DRAMA">Drama</option>
-         <option selected value="SCIFI">
+         <option value="SCIFI">
            Science Fiction</option>
          <option value="FANTASY">Fantasy</option>
        </select>
@@ -258,9 +258,9 @@ export default function Lab1() {
        <h5>Select many</h5>
        <label htmlFor="wd-select-many-genre"> Favorite movie genres: </label><br />
        <select multiple id="wd-select-many-genre">
-         <option value="COMEDY" selected> Comedy          </option>
+         <option value="COMEDY"> Comedy          </option>
          <option value="DRAMA">           Drama           </option>
-         <option value="SCIFI" selected> Science Fiction </option>
+         <option value="SCIFI"> Science Fiction </option>
          <option value="FANTASY">         Fantasy         </option>
        </select>
 
