@@ -64,88 +64,25 @@ export default function Lab1() {
           <li>Fahrenheit 451</li>
         </ul>
       </div>
-      <div id="wd-tables">
-        <h4>Table Tag</h4>
-        <table border={1} width="100%">
-          <thead>
-            <tr>
-              <th>Quiz</th>
-              <th>Topic</th>
-              <th>Date</th>
-              <th>Grade</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Q1</td>
-              <td>HTML</td>
-              <td>2/3/21</td>
-              <td>85</td>
-            </tr>
-            <tr>
-              <td>Q2</td>
-              <td>CSS</td>
-              <td>2/10/21</td>
-              <td>90</td>
-            </tr>
-            <tr>
-              <td>Q3</td>
-              <td>CSS</td>
-              <td>2/17/21</td>
-              <td>95</td>
-            </tr>
-            <tr>
-              <td>Q4</td>
-              <td>JS</td>
-              <td>2/24/21</td>
-              <td>90</td>
-            </tr>
-            <tr>
-              <td>Q5</td>
-              <td>JS</td>
-              <td>3/3/21</td>
-              <td>90</td>
-            </tr>
-            <tr>
-              <td>Q6</td>
-              <td>Redux</td>
-              <td>3/10/21</td>
-              <td>95</td>
-            </tr>
-            <tr>
-              <td>Q7</td>
-              <td>Redux</td>
-              <td>3/17/21</td>
-              <td>90</td>
-            </tr>
-            <tr>
-              <td>Q8</td>
-              <td>Node</td>
-              <td>3/24/21</td>
-              <td>95</td>
-            </tr>
-            <tr>
-              <td>Q9</td>
-              <td>Node</td>
-              <td>3/31/21</td>
-              <td>90</td>
-            </tr>
-            <tr>
-              <td>Q10</td>
-              <td>Mongo</td>
-              <td>4/7/21</td>
-              <td>85</td>
-            </tr>
-          </tbody>
-          <tfoot>
-            <tr>
-              <td colSpan={3}>Average</td>
-              <td>90</td>
-            </tr>
-          </tfoot>
-        </table>
-      </div>
 
+      <div id="wd-images">
+        <h4>Image tag</h4>
+        Loading an image from the internet: <br />
+        <img
+          id="wd-starship"
+          width={400}
+          src="https://www.staradvertiser.com/wp-content/uploads/2021/08/web1_Starship-gap2.jpg"
+          alt="SpaceX Starship on launch pad"
+        />        <br />
+        Loading a local image:
+        <br />
+
+        <img
+          id="wd-teslabot"
+          src="/images/teslabot.jpg"
+          height={200}
+          alt="Tesla Bot robot"
+        />      </div>
       <div id="wd-forms">
         <h4>Form Elements</h4>
         <form id="wd-text-fields">
