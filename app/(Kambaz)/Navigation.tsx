@@ -3,6 +3,7 @@ export default function KambazNavigation() {
   return (
     <div id="wd-kambaz-navigation">
       <a href="https://www.northeastern.edu/" id="wd-neu-link" target="_blank">Northeastern</a><br/>
+      <a href="https://github.com/francis-bunker/kambaz-next-js-cs4550-fa25" id="wd-neu-link" target="_blank">My Github</a><br/>
       <Link href="/Account" id="wd-account-link">Account</Link><br/>
       <Link href="/Dashboard" id="wd-dashboard-link">Dashboard</Link><br/>
       <Link href="/Dashboard" id="wd-course-link">Courses</Link><br/>
