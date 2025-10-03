@@ -1,43 +1,53 @@
-export default function AssignmentEditor() {
+export default function Page() {
   return (
-    <div id="wd-assignments-editor">
-      <label htmlFor="wd-name">Assignment Name</label>
-      <input id="wd-name" value="A1 - ENV + HTML" /><br /><br />
-      <textarea id="wd-description">
-        The assignment is available online Submit a link to the landing page of
-      </textarea>
-      <br />
-      <table>
-        <tr>
-          <td align="right" valign="top">
-            <label htmlFor="wd-points">Points</label>
-          </td>
-          <td>
-            <input id="wd-points" value={100} />
-          </td>
-        </tr>
-      </table>
-      <label htmlFor="wd-select-group"> Assignment Group </label>
-      <select id="we-select-group">
-        <option value="ASSIGNMENTS">assignments</option>
-        <option value="QUIZES">quizes</option>
-      </select>
-      <br /><br />
-      <label htmlFor="wd-select-display"> Display grade as </label>
-      <select id="we-select-display">
-        <option value="persentage">Persentage</option>
-        <option value="points">points</option>
-      </select>
-      <br /><br />
-      <label htmlFor="wd-select-submission-type"> Submission Type </label>
-      <select id="we-select-submission-type">
-        <option value="ONLINE">online</option>
-        <option value="IN-PERSON">in person</option>
-      </select>
-      <br /><br />
-      <label>Online Entry Options</label><br />
+    <div id="wd-css-styling-forms">
+      <h2>Assignment Editor</h2>
+      <FormLabel>Assignment Name</FormLabel>
+      <FormControl type="text" />
+      <FormControl as="textarea" rows={3} />
+      <div id="wd-css-styling-dropdowns">
+        <h3>Grade type</h3>
+        <FormSelect>
+          <option value="0" defaultChecked>Percentage</option>
+          <option value="1">Points</option>
 
-      <input type="checkbox" name="entry-options" id="wd-chkbox-text" />
+        </FormSelect>
+        <h3>assignemnt group</h3>
+        <FormSelect>
+          <option value="0" defaultChecked>assignments</option>
+          <option value="1">quizes</option>
+
+        </FormSelect>
+        <FormSelect>
+          <h3>submission type</h3>
+
+          <option value="0" defaultChecked>online</option>
+          <option value="1">in person </option>
+
+        </FormSelect>
+      </div>
+      <div id="wd-css-responsive-forms-1">
+        <h3>Responsive forms</h3>
+        <Row className="mb-3" controlid="email1">
+          <FormLabel column sm={2}> Email </FormLabel>
+          <Col sm={10}>
+            <FormControl type="email" defaultValue="email@example.com" />
+          </Col>
+        </Row>
+        <Row className="mb-3" controlid="password1">
+          <FormLabel column sm={2}> Password </FormLabel>
+          <Col sm={10}>
+            <FormControl type="password" />
+          </Col>
+        </Row>
+        <Row className="mb-3" controlid="textarea2">
+          <FormLabel column sm={2}> Bio </FormLabel>
+          <Col sm={10}>
+            <FormControl as="textarea" style={{ height: "100px" }} />
+          </Col>
+        </Row>
+      </div>
+         <input type="checkbox" name="entry-options" id="wd-chkbox-text" />
       <label htmlFor="wd-chkbox-comedy">Text Entry</label><br />
 
       <input type="checkbox" name="entry-options" id="wd-chkbox-website" />
@@ -76,3 +86,7 @@ export default function AssignmentEditor() {
     </div>
   );
 }
+import { Row, Col } from "react-bootstrap";
+import { FormCheck } from "react-bootstrap";
+import { FormSelect } from "react-bootstrap";
+import { FormLabel, FormControl } from "react-bootstrap";

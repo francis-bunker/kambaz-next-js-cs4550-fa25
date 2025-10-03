@@ -52,7 +52,7 @@ export default function Assignments() {
           </div>
         </div>
         <ListGroup id="wd-assignment-list" className="rounded-0">
-          <ListGroupItem className="wd-assignment-list-item p-3 ps-2 border-gray">
+          <ListGroupItem className="wd-module p-0 mb-5 fs-5 border-grayy">
             <div className="border-start border-3 border-success ps-3">
               <Link href="/Courses/1234/Assignments/123" className="wd-assignment-link text-decoration-none">
                 <div className="fw-semibold">A1 - ENV + HTML</div>
@@ -62,7 +62,7 @@ export default function Assignments() {
               </div>
             </div>
           </ListGroupItem>
-          <ListGroupItem className="wd-assignment-list-item p-3 ps-2 border-gray">
+          <ListGroupItem className="wd-module p-0 mb-5 fs-5 border-gray">
             <div className="border-start border-3 border-success ps-3">
               <Link href="/Courses/1234/Assignments/124" className="wd-assignment-link text-decoration-none">
                 <div className="fw-semibold">A2 - CSS + Bootstrap</div>
@@ -72,7 +72,7 @@ export default function Assignments() {
               </div>
             </div>
           </ListGroupItem>
-          <ListGroupItem className="wd-assignment-list-item p-3 ps-2 border-gray">
+          <ListGroupItem className="wd-module p-0 mb-5 fs-5 border-gray">
             <div className="border-start border-3 border-success ps-3">
               <Link href="/Courses/1234/Assignments/125" className="wd-assignment-link text-decoration-none">
                 <div className="fw-semibold">A3 - JavaScript + React</div>
@@ -83,6 +83,7 @@ export default function Assignments() {
             </div>
           </ListGroupItem>
         </ListGroup>
+
       </div>
     </div>
   );
