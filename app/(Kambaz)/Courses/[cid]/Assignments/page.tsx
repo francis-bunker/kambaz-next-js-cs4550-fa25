@@ -1,17 +1,16 @@
-"use client";
+"use client"
+import { useParams } from "next/navigation";
+import * as db from "../../../Database";
 
+import { Button, ButtonGroup, FormControl, InputGroup, ListGroup, ListGroupItem } from "react-bootstrap";
+import { BsGripVertical, BsPlusLg, BsSearch } from "react-icons/bs";
 import Link from "next/link";
-import {
-  Button,
-  ButtonGroup,
-  InputGroup,
-  FormControl,
-  ListGroup,
-  ListGroupItem,
-} from "react-bootstrap";
-import { BsSearch, BsPlusLg, BsThreeDotsVertical } from "react-icons/bs";
 
-export default function Assignments() {
+export default function Assignment() {
+
+  const { cid } = useParams();
+  const modules = db.modules;
+  const assignments = db.assignments;
   return (
     <div id="wd-assignments">
       <div className="mb-3 clearfix">
@@ -20,7 +19,7 @@ export default function Assignments() {
             <InputGroup.Text className="bg-white">
               <BsSearch />
             </InputGroup.Text>
-            <FormControl placeholder="Search for Assignments" id="wd-search-assignment" aria-label="Search assignments"/>
+            <FormControl placeholder="Search for Assignments" id="wd-search-assignment" aria-label="Search assignments" />
           </InputGroup>
         </div>
 
@@ -35,55 +34,24 @@ export default function Assignments() {
           </Button>
         </ButtonGroup>
       </div>
-      <div className="border border-gray rounded mb-2">
-        <div
-          id="wd-assignments-title"
-          className="wd-title p-3 ps-2 bg-secondary d-flex align-items-center justify-content-between">
-          <span className="fw-semibold">
-            ASSIGNMENTS <span className="text-body-secondary fw-normal">· 40% of Total</span>
-          </span>
-          <div className="d-flex align-items-center gap-2">
-            <Button size="sm" variant="outline-secondary" title="More">
-              <BsThreeDotsVertical />
-            </Button>
-            <Button size="sm" variant="danger" title="Add item">
-              <BsPlusLg />
-            </Button>
-          </div>
-        </div>
-        <ListGroup id="wd-assignment-list" className="rounded-0">
-          <ListGroupItem className="wd-module p-0 mb-5 fs-5 border-grayy">
-            <div className="border-start border-3 border-success ps-3">
-              <Link href="/Courses/1234/Assignments/123" className="wd-assignment-link text-decoration-none">
-                <div className="fw-semibold">A1 - ENV + HTML</div>
-              </Link>
-              <div className="text-body-secondary small">
-                Due <span className="fw-medium">May 1, 11:59pm</span> · Available Apr 1 · 100 pts
-              </div>
-            </div>
-          </ListGroupItem>
-          <ListGroupItem className="wd-module p-0 mb-5 fs-5 border-gray">
-            <div className="border-start border-3 border-success ps-3">
-              <Link href="/Courses/1234/Assignments/124" className="wd-assignment-link text-decoration-none">
-                <div className="fw-semibold">A2 - CSS + Bootstrap</div>
-              </Link>
-              <div className="text-body-secondary small">
-                Due <span className="fw-medium">June 1, 11:59pm</span> · Available May 1 · 100 pts
-              </div>
-            </div>
-          </ListGroupItem>
-          <ListGroupItem className="wd-module p-0 mb-5 fs-5 border-gray">
-            <div className="border-start border-3 border-success ps-3">
-              <Link href="/Courses/1234/Assignments/125" className="wd-assignment-link text-decoration-none">
-                <div className="fw-semibold">A3 - JavaScript + React</div>
-              </Link>
-              <div className="text-body-secondary small">
-                Due <span className="fw-medium">Dec 1, 11:59pm</span> · Available Apr 1 · 100 pts
-              </div>
-            </div>
-          </ListGroupItem>
-        </ListGroup>
 
+      <div>
+        <ListGroup className="rounded-0" id="wd-modules">
+          <ListGroupItem className="wd-assignment p-0 fs-5 border-gray">
+            Assignments
+          </ListGroupItem>
+          {assignments
+            .filter((assignment: any) => assignment.course === cid)
+            .map((assignment: any) => (
+              <ListGroupItem className="w4d-assignment p-3 ps-1">
+                <BsGripVertical className="me-2 fs-3" />
+                <Link href={`/Courses/${cid}/Assignments/${assignment._id}`} >
+                  {assignment.title}
+                </Link>
+                <br />
+                <p>not avalible until {assignment.avalible}, due {assignment.due}, {assignment.points} points</p>
+              </ListGroupItem>))}
+        </ListGroup>
       </div>
     </div>
   );
