@@ -1,4 +1,5 @@
 "use client"
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useParams } from "next/navigation";
 import * as db from "../../../../Database";
 export default function Page() {
@@ -7,9 +8,8 @@ export default function Page() {
     <div id="wd-css-styling-forms">
       <h2>Assignment Editor</h2>
       <FormLabel>Assignment Name</FormLabel>
-      /* eslint-disable @typescript-eslint/no-explicit-any */
+      
       <FormControl type="text" defaultValue={db.assignments.filter((assignment: any) => assignment._id === aid)[0].title} />
-        /* eslint-disable @typescript-eslint/no-explicit-any */
       <FormControl as="textarea" rows={3} defaultValue={db.assignments.filter((assignment: any) => assignment._id === aid)[0].description} />
       <div id="wd-css-styling-dropdowns">
         <h3>Grade type</h3>
@@ -53,24 +53,20 @@ export default function Page() {
         placeholder="everyone"
         id="wd-text-fields-assign-to" /><br />
       <label htmlFor="wd-text-fields-points"> points </label>
-      /* eslint-disable @typescript-eslint/no-explicit-any */
       <input type="text"
         defaultValue={db.assignments.filter((assignment: any) => assignment._id === aid)[0].points}
         id="wd-text-fields-assign-to" /><br />
 
       <label htmlFor="wd-text-fields-due"> due date: </label>
-      /* eslint-disable @typescript-eslint/no-explicit-any */
       <input type="date"
         defaultValue={db.assignments.filter((assignment: any) => assignment._id === aid)[0].due}
         id="wd-text-fields-due" /><br />
 
       <label htmlFor="wd-text-fields-avalible-from"> Avalible from: </label>
-      /* eslint-disable @typescript-eslint/no-explicit-any */
       <input type="date"
         defaultValue={db.assignments.filter((assignment: any) => assignment._id === aid)[0].avalible}
         id="wd-text-fields-avalible-from" />
       <label htmlFor="wd-text-fields-avalible-until"> Until: </label>
-      /* eslint-disable @typescript-eslint/no-explicit-any */
       <input type="date"
         defaultValue={db.assignments.filter((assignment: any) => assignment._id === aid)[0].due}
         id="wd-text-fields-avalible-until" /><br />
