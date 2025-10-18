@@ -1,4 +1,7 @@
 "use client"
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
+
 import { useParams } from "next/navigation";
 import * as db from "../../../Database";
 
@@ -44,7 +47,7 @@ export default function Assignment() {
           {assignments
             .filter((assignment: any) => assignment.course === cid)
             .map((assignment: any) => (
-              <ListGroupItem className="w4d-assignment p-3 ps-1">
+              <ListGroupItem className="w4d-assignment p-3 ps-1" key ={assignment._id} >
                 <BsGripVertical className="me-2 fs-3" />
                 <Link href={`/Courses/${cid}/Assignments/${assignment._id}`} >
                   {assignment.title}

@@ -1,4 +1,7 @@
 "use client"
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
+
 import { useParams } from "next/navigation";
 import * as db from "../../../Database";
 
@@ -17,12 +20,12 @@ export default function Modules() {
         {modules
           .filter((module: any) => module.course === cid)
           .map((module: any) => (
-            <ListGroupItem className="wd-module p-0 mb-5 fs-5 border-gray">
+            <ListGroupItem className="wd-module p-0 mb-5 fs-5 border-gray" key ={module._id} >
               <div className="wd-title p-3 ps-2 bg-secondary">
                 <BsGripVertical className="me-2 fs-3" /> {module.name} <ModuleControlButtons />
               </div>
               {module.lessons && (
-                <ListGroup className="wd-lessons rounded-0">
+                <ListGroup className="wd-lessons rounded-0" key = {module._id} >
                   {module.lessons.map((lesson: any) => (
                     <ListGroupItem className="wd-lesson p-3 ps-1">
                       <BsGripVertical className="me-2 fs-3" /> {lesson.name} <LessonControlButtons />
