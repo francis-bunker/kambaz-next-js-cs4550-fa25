@@ -43,7 +43,6 @@ export default function Assignment() {
           <ListGroupItem className="wd-assignment p-0 fs-5 border-gray">
             Assignments
           </ListGroupItem>
-          /* eslint-disable @typescript-eslint/no-explicit-any */
           {assignments
             .filter((assignment: any) => assignment.course === cid)
             .map((assignment: any) => (
