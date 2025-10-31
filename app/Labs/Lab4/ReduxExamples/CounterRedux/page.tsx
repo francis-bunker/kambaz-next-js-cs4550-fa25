@@ -1,3 +1,5 @@
+"use client";
+
 import { useSelector, useDispatch } from "react-redux";
 import { increment, decrement } from "./counterReducer";
 /* eslint-disable @typescript-eslint/no-explicit-any */
