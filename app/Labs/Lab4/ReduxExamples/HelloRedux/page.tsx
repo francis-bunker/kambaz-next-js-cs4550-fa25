@@ -1,4 +1,4 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
+"use client";
 import { useSelector, useDispatch } from "react-redux";
 /* eslint-disable @typescript-eslint/no-explicit-any */
 export default function HelloRedux() {
