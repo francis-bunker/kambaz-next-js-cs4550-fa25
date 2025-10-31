@@ -14,7 +14,6 @@ const assignmentsSlice = createSlice({
             const newAssignment: any = {
                 _id: uuidv4(),
                 ...assignment,
-                title: assignment.title,
                 description: "New Assignment Description",
                 points: 100,
                 due: "2024-12-31",

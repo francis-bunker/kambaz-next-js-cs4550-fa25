@@ -1,82 +1,66 @@
 "use client"
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { useParams } from "next/navigation";
-import * as db from "../../../../Database";
+import { useParams, useRouter } from "next/navigation";
+import { v4 as uuidv4 } from "uuid";
+import { useSelector, useDispatch } from "react-redux";
+import { addAssignment, updateAssignment } from "../reducer";
+import { useState } from "react";
+import { FormLabel, FormControl, FormSelect } from "react-bootstrap";
+
 export default function Page() {
   const { cid, aid } = useParams();
+  const dispatch = useDispatch();
+  const router = useRouter();
+  const { assignments } = useSelector((state: any) => state.assignmentReducer);
+
+  const [assignment, setAssignment] = useState(() => {
+    return aid === "new"
+      ? {
+          _id: uuidv4(), title: "New Assignment", description: "New Assignment Description",
+          points: 100, due: "2100-01-01", avalible: "2000-01-01", course: cid,
+        }
+      : assignments.find((a: any) => a._id === aid);
+  });
+
+  const handleSave = () => {
+    if (aid === "new") {
+      dispatch(addAssignment({ ...assignment, course: cid }));
+    } else {
+      dispatch(updateAssignment(assignment));
+    }
+    router.push(`/Courses/${cid}/Assignments`);
+  };
+
   return (
     <div id="wd-css-styling-forms">
-      <h2>Assignment Editor</h2>
-      <FormLabel>Assignment Name</FormLabel>
-      
-      <FormControl type="text" defaultValue={db.assignments.filter((assignment: any) => assignment._id === aid)[0].title} />
-      <FormControl as="textarea" rows={3} defaultValue={db.assignments.filter((assignment: any) => assignment._id === aid)[0].description} />
-      <div id="wd-css-styling-dropdowns">
-        <h3>Grade type</h3>
-        <FormSelect>
-          <option value="0" defaultChecked>Percentage</option>
-          <option value="1">Points</option>
-
-        </FormSelect>
-        <h3>assignemnt group</h3>
-        <FormSelect>
-          <option value="0" defaultChecked>assignments</option>
-          <option value="1">quizes</option>
-
-        </FormSelect>
-        <FormSelect>
-          <h3>submission type</h3>
-
-          <option value="0" defaultChecked>online</option>
-          <option value="1">in person </option>
-
-        </FormSelect>
+      <FormLabel>{aid === "new" ? "Creating New" : "Editing"} Assignment</FormLabel>
+      <FormControl value={assignment.title} onChange={(e) => setAssignment({ ...assignment, title: e.target.value })} />
+      <br />
+      <FormControl as="textarea" rows={3} value={assignment.description} onChange={(e) => setAssignment({ ...assignment, description: e.target.value })} />
+      <br />
+      <div className="row">
+        <div className="col-md-6">
+          <label htmlFor="wd-text-fields-points">Points</label>
+          <FormControl id="wd-text-fields-points" value={assignment.points} onChange={(e) => setAssignment({ ...assignment, points: e.target.value })} />
+        </div>
       </div>
+      <br />
+      <div className="row">
+        <div className="col-md-6">
+          <label htmlFor="wd-text-fields-due">Due</label>
+          <FormControl type="date" id="wd-text-fields-due" value={assignment.due} onChange={(e) => setAssignment({ ...assignment, due: e.target.value })} />
+        </div>
+        <div className="col-md-6">
+          <label htmlFor="wd-text-fields-available-from">Available From</label>
+          <FormControl type="date" id="wd-text-fields-available-from" value={assignment.avalible} onChange={(e) => setAssignment({ ...assignment, avalible: e.target.value })} />
+        </div>
+      </div>
+      <hr />
 
-      <input type="checkbox" name="entry-options" id="wd-chkbox-text" />
-      <label htmlFor="wd-chkbox-comedy">Text Entry</label><br />
-
-      <input type="checkbox" name="entry-options" id="wd-chkbox-website" />
-      <label htmlFor="wd-chkbox-drama">Website</label><br />
-
-      <input type="checkbox" name="entry-options" id="wd-chkbox-media" />
-      <label htmlFor="wd-chkbox-scifi">Media Recordings</label><br />
-
-      <input type="checkbox" name="entry-options" id="wd-chkbox-annotation" />
-      <label htmlFor="wd-chkbox-fantasy">Student Annotation</label><br />
-
-      <input type="checkbox" name="centry-options" id="wd-chkbox-annotation" />
-      <label htmlFor="wd-chkbox-fantasy">File Uploads</label>
-      <br /><br />
-      <label htmlFor="wd-text-fields-assign-to"> assign to: </label>
-      <input type="text"
-        placeholder="everyone"
-        id="wd-text-fields-assign-to" /><br />
-      <label htmlFor="wd-text-fields-points"> points </label>
-      <input type="text"
-        defaultValue={db.assignments.filter((assignment: any) => assignment._id === aid)[0].points}
-        id="wd-text-fields-assign-to" /><br />
-
-      <label htmlFor="wd-text-fields-due"> due date: </label>
-      <input type="date"
-        defaultValue={db.assignments.filter((assignment: any) => assignment._id === aid)[0].due}
-        id="wd-text-fields-due" /><br />
-
-      <label htmlFor="wd-text-fields-avalible-from"> Avalible from: </label>
-      <input type="date"
-        defaultValue={db.assignments.filter((assignment: any) => assignment._id === aid)[0].avalible}
-        id="wd-text-fields-avalible-from" />
-      <label htmlFor="wd-text-fields-avalible-until"> Until: </label>
-      <input type="date"
-        defaultValue={db.assignments.filter((assignment: any) => assignment._id === aid)[0].due}
-        id="wd-text-fields-avalible-until" /><br />
-
-      <button>Save</button>
-      <button>Cancel</button>
+      <div className="float-end">
+        <button className="btn btn-secondary me-2" onClick={() => router.push(`/Courses/${cid}/Assignments`)}>Cancel</button>
+        <button className="btn btn-danger" onClick={handleSave}>Save</button>
+      </div>
     </div>
   );
 }
-import { Row, Col } from "react-bootstrap";
-import { FormCheck } from "react-bootstrap";
-import { FormSelect } from "react-bootstrap";
-import { FormLabel, FormControl } from "react-bootstrap";
