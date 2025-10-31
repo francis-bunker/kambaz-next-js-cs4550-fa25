@@ -1,3 +1,4 @@
+"use client";
 import { Button, FormControl, ListGroupItem } from "react-bootstrap";
 
 export default function TodoForm({ todo, setTodo, addTodo, updateTodo }: {

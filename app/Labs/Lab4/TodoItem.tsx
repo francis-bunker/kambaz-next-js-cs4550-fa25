@@ -1,3 +1,4 @@
+"use client";
 import { Button, ListGroupItem } from "react-bootstrap";
 
 export default function TodoItem({ todo, deleteTodo, setTodo }: {
