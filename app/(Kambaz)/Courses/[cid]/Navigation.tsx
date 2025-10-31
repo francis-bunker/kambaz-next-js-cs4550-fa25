@@ -7,7 +7,6 @@ import { ListGroup, ListGroupItem } from "react-bootstrap";
 export default function CourseNavigation() {
   const pathname = usePathname();
   const { cid } = useParams();
-  const links = ["Home", "Modules", "Piazza", "Zoom", "Assignments", "Quizzes", "Grades", "People"];
   return (
     <div id="wd-courses-navigation" className="wd list-group fs-5 rounded-0">
 

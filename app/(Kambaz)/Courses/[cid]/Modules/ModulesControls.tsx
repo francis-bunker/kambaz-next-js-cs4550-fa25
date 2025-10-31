@@ -3,7 +3,7 @@ import { FaPlus } from "react-icons/fa6";
 import GreenCheckmark from "./GreenCheckmark";
 import ModuleEditor from "./ModuleEditor";
 import { useState } from "react";
-
+import { FaTrash } from "react-icons/fa";
 export default function ModulesControls(
     { moduleName, setModuleName, addModule }:
         { moduleName: string; setModuleName: (title: string) => void; addModule: () => void; }) {
