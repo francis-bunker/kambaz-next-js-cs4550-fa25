@@ -15,10 +15,6 @@ const assignmentsSlice = createSlice({
             const newAssignment: any = {
                 _id: uuidv4(),
                 ...assignment,
-                description: "New Assignment Description",
-                points: 100,
-                due: "2024-12-31",
-                avalible: new Date().toISOString().split("T")[0],
             };
             state.assignments = [...state.assignments, newAssignment] as any;
         },
