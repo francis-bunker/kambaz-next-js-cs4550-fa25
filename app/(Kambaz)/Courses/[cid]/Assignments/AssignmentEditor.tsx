@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { FormControl, Button, FormLabel } from "react-bootstrap";
 
 export default function AssignmentEditor({
