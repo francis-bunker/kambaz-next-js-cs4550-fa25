@@ -18,7 +18,6 @@ export default function Assignments() {
   return (
     <div id="wd-assignments">
       {currentUser?.role === "FACULTY" && <AssignmentsControls />}
-
       <div>
         <ListGroup className="rounded-0" id="wd-modules">
           <ListGroupItem className="wd-assignment p-0 fs-5 border-gray">
