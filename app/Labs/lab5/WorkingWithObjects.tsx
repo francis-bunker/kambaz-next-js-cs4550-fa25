@@ -43,7 +43,7 @@ export default function WorkingWithObjects() {
                 Get Title
             </a><hr />
             <a id="wd-retrieve-module-name" className="btn btn-primary"
-                href={`${HTTP_SERVER}/lab5/module/name`}>
+                href={`${HTTP_SERVER}/lab5/module/name`}> 
                 Get Module Name
             </a>
             <hr />
