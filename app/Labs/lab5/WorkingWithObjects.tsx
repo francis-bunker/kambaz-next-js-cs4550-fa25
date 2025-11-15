@@ -9,7 +9,7 @@ export default function WorkingWithObjects() {
         description: "Create a NodeJS server with ExpressJS",
         due: "2021-10-10", completed: false, score: 0,
     });
-    const module = { module: "Lab 5 - Working with Objects" };
+    const modulee = { module: "Lab 5 - Working with Objects" };
     const ASSIGNMENT_API_URL = `${HTTP_SERVER}/lab5/assignment`
     const MODULE_API_URL = `${HTTP_SERVER}/lab5/module`
     return (
@@ -26,11 +26,11 @@ export default function WorkingWithObjects() {
             <hr />
             <a id="wd-update-module-name"
                 className="btn btn-primary float-end"
-                href={`${MODULE_API_URL}/name/${module.module}`}>
+                href={`${MODULE_API_URL}/name/${modulee.module}`}>
                 Update Module Name </a>
             <FormControl className="w-75" id="wd-module-name"
-                defaultValue={module.module} onChange={(e) =>
-                    module.module = e.target.value} />
+                defaultValue={modulee.module} onChange={(e) =>
+                    modulee.module = e.target.value} />
             <hr />
             <h4>Retrieving Objects</h4>
             <a id="wd-retrieve-assignments" className="btn btn-primary"
