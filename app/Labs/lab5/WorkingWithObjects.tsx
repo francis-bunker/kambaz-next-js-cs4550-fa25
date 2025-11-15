@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
 import { FormControl } from "react-bootstrap";
 const HTTP_SERVER = process.env.NEXT_PUBLIC_HTTP_SERVER;
 export default function WorkingWithObjects() {

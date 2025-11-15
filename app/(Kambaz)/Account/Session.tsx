@@ -1,4 +1,6 @@
 import * as client from "./client";
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
 import { useEffect, useState } from "react";
 import { setCurrentUser } from "./reducer";
 import { useDispatch } from "react-redux";

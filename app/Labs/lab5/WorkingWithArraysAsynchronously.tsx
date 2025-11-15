@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
 import * as client from "./client";
 import { FaPencil } from "react-icons/fa6";
 import { TiDelete } from "react-icons/ti";

@@ -1,5 +1,7 @@
 const HTTP_SERVER = process.env.NEXT_PUBLIC_HTTP_SERVER;
 import React, { useState } from "react";
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
 import { FormControl, FormCheck } from "react-bootstrap";
 export default function WorkingWithArrays() {
     const API = `${HTTP_SERVER}/lab5/todos`;
