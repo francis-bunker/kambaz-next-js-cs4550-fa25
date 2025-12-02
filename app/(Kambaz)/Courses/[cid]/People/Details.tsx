@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
 import { FaUserCircle } from "react-icons/fa";
 import { IoCloseSharp } from "react-icons/io5";
 import { useParams, useRouter } from "next/navigation";
