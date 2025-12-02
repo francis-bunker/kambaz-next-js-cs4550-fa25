@@ -33,9 +33,17 @@ export default function Modules() {
     dispatch(setModules([...modules, modulee]));
   };
   const onRemoveModule = async (moduleId: string) => {
-    await client.deleteModule(moduleId);
+    await client.deleteModule(cid as string, moduleId);
     dispatch(setModules(modules.filter((m: any) => m._id !== moduleId)));
   };
+  const onUpdateModule = async (module: any) => {
+    await client.updateModule(cid as string, module);
+    const newModules = modules.map((m: any) =>
+      m._id === module._id ? module : m
+    );
+    dispatch(setModules(newModules));
+  };
+
   return (
     <div>
       <ModulesControls moduleName={moduleName} setModuleName={setModuleName}
@@ -52,14 +60,17 @@ export default function Modules() {
                     onChange={(e) => dispatch(updateModule({ ...module, name: e.target.value }))}
                     onKeyDown={(e) => {
                       if (e.key === "Enter") {
-                        dispatch(updateModule({ ...module, editing: false }));
+                        const newModule = { ...module, editing: false };
+                        onUpdateModule(newModule);
+                        dispatch(updateModule(newModule));
                       }
                     }}
                     defaultValue={module.name} />
                 )}
                 <ModuleControlButtons
+                  moduleId={module._id}
                   deleteModule={(moduleId) => onRemoveModule(moduleId)}
-                  editModule={(moduleId) => dispatch(editModule(moduleId))} moduleId={""} />              </div>
+                  editModule={(moduleId) => dispatch(editModule(moduleId))} />              </div>
               {module.lessons && (
                 <ListGroup className="wd-lessons rounded-0" key={module._id} >
                   {module.lessons.map((lesson: any) => (
