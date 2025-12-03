@@ -34,7 +34,11 @@ export default function Modules() {
   };
   const onRemoveModule = async (moduleId: string) => {
     await client.deleteModule(moduleId);
-    dispatch(setModules(modules.filter((m: any) => m._id !== moduleId)));
+    dispatch(deleteModule(moduleId));
+  };
+  const onUpdateModule = async (module: any) => {
+    await client.updateModule(module);
+    dispatch(updateModule(module));
   };
   return (
     <div>
@@ -49,17 +53,17 @@ export default function Modules() {
                 {!module.editing && module.name}
                 {module.editing && (
                   <FormControl className="w-50 d-inline-block"
-                    onChange={(e) => dispatch(updateModule({ ...module, name: e.target.value }))}
                     onKeyDown={(e) => {
-                      if (e.key === "Enter") {
-                        dispatch(updateModule({ ...module, editing: false }));
+                      if (e.key === "Enter") { // Use async here to await the update
+                        const newModule = { ...module, name: e.currentTarget.value, editing: false };
+                        (async () => await onUpdateModule(newModule))();
                       }
                     }}
                     defaultValue={module.name} />
                 )}
                 <ModuleControlButtons
                   deleteModule={(moduleId) => onRemoveModule(moduleId)}
-                  editModule={(moduleId) => dispatch(editModule(moduleId))} moduleId={""} />              </div>
+                  editModule={(moduleId) => dispatch(editModule(moduleId))} moduleId={module._id} />              </div>
               {module.lessons && (
                 <ListGroup className="wd-lessons rounded-0" key={module._id} >
                   {module.lessons.map((lesson: any) => (
